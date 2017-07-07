@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is REST API documentation for Experience Devops",
+    "version": "0.0.1",
+    "title": "Experience Devops",
+	"contact": {
+      "email": "experiencedigitial@gmail.com"
+    }
+  },
+  "host": "127.0.0.1:3000",
+  "basePath": "/",
+  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    
+	
+	 "/user ": {
+          "get": {
+            "tags": ["Users"],
+            "summary" : "Get Users list",
+            "description": "Get list of users for the application",
+            "responses": {
+                  "200": {
+                    "description": "",
+                    "schema": {
+                          "type": "array",
+                          "items": [{}]
+                    }
+                  }
+            }
+          }
+      },
+
+      "/user": {
+            "post": {
+              "tags": ["Users"],
+              "summary": "Add User",
+              "description": "Add User to the user details",
+              "parameters": [
+                {
+                  "in": "body",
+                  "name": "body",
+                  "description": "New user object",
+                  "required": true,
+                  "schema": {
+                        "$ref": "#/definitions/User"
+                  }    
+                }
+              ],
+              "responses": {
+                "default": {
+                  "description": "Added to User Details"
+                }
+              }
+            }
+    }
+
+    },
+    
+     "definitions": {
+          "User": {
+            "required": [
+                "fname",
+                "lname",
+                "age",
+                "speaks",
+                "ethnicity",
+                "livesin",
+                "iconimage"    
+            ],
+            "properties": {
+              "fname": {
+                  "type": "string"
+                },
+              "lname": {
+                  "type": "string"
+                },
+              "age": {
+                  "type": "integer"
+                },
+              "speaks": {
+                  "type": "string"
+                },
+              "ethnicity": {
+                  "type": "string"
+                },
+              "livesin": {
+                  "type": "string"
+                },
+              "iconimage": {
+                  "type": "string"
+                }
+              }
+          }
+    }
+}
